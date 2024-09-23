@@ -16,8 +16,63 @@ class MyApp extends ConsumerWidget {
       maxScaleFactor: 1.5,
       child: MaterialApp.router(
         theme: ThemeData(
-          colorSchemeSeed: const Color(0xFF013220),
-        ),
+            scaffoldBackgroundColor: const Color(0xFFFFFFFF),
+            colorScheme: const ColorScheme.light(
+              primary: Color(0xFF172B24),
+              onPrimary: Color(0xFFFFFFFF),
+              secondary: Color(0xFF172B24),
+              onSecondary: Color(0xFFFFFFFF),
+              onSecondaryContainer: Color(0xFFC4CAC8),
+            ),
+            progressIndicatorTheme: const ProgressIndicatorThemeData(
+              color: Color(0xFFFFFFFF),
+            ),
+            filledButtonTheme: const FilledButtonThemeData(
+              style: ButtonStyle(
+                textStyle: WidgetStatePropertyAll(
+                  TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                minimumSize: WidgetStatePropertyAll(
+                  Size(double.infinity, 48),
+                ),
+              ),
+            ),
+            inputDecorationTheme: InputDecorationTheme(
+              filled: true,
+              hintStyle: TextStyle(
+                fontSize: 14,
+                color: Colors.grey.shade500,
+              ),
+              contentPadding: const EdgeInsets.symmetric(
+                vertical: 12,
+                horizontal: 16,
+              ),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12),
+                borderSide: const BorderSide(
+                  color: Color(0xFFC4CAC8),
+                  width: 1,
+                ),
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12),
+                borderSide: const BorderSide(
+                  color: Color(0xFFC4CAC8),
+                  width: 1,
+                ),
+              ),
+              disabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12),
+                borderSide: const BorderSide(
+                  // color: color.disabledBorder,
+                  width: 1,
+                ),
+              ),
+              // suffixIconColor: color.suffixIcon,
+            )),
         routerConfig: ref.read(routerProvider),
       ),
     );
