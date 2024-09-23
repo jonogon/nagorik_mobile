@@ -72,7 +72,6 @@ class RestClientKit {
   Future<Response<dynamic>> post(
     String path, {
     Object? data,
-    bool isFormData = false,
     Map<String, Object?>? headers,
     Map<String, Object?>? query,
   }) {
@@ -91,7 +90,6 @@ class RestClientKit {
   Future<Response<dynamic>> put(
     String path, {
     Object? data,
-    bool isFormData = false,
     Map<String, Object?>? headers,
     Map<String, Object?>? query,
   }) {

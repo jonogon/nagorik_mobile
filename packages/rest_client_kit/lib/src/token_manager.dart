@@ -86,7 +86,8 @@ class TokenManager extends Interceptor {
     handler.next(response);
   }
 
-  @override
+  //TODO (Momshad): Need to fix this later
+  /*@override
   void onError(DioException err, ErrorInterceptorHandler handler) async {
     if (err.response?.statusCode == 401) {
       if (refreshTokenEndpoint == null) {
@@ -114,7 +115,7 @@ class TokenManager extends Interceptor {
       }
     }
     super.onError(err, handler);
-  }
+  }*/
 
   Future<void> saveToken(String key, String value) async {
     final prefs = await SharedPreferences.getInstance();
@@ -131,7 +132,8 @@ class TokenManager extends Interceptor {
     return prefs.getString(_refreshTokenKey);
   }
 
-  Future<String?> refreshToken() async {
+//TODO (Momshad): Need to fix this later
+/*Future<String?> refreshToken() async {
     final refreshToken = await getRefreshToken();
     if (refreshToken == null) return null;
 
@@ -147,5 +149,5 @@ class TokenManager extends Interceptor {
       throw Unauthorized(e);
     }
     return null;
-  }
+  }*/
 }
