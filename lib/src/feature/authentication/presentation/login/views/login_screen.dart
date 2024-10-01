@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+import 'package:nagorik_mobile/src/core/services/navigation/routes.dart';
 
 import '../../../../../core/gen/assets.gen.dart';
 import '../../../domain/entities/login_entity.dart';
@@ -61,12 +63,16 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
             ),
             FilledButton(
               onPressed: () {
-                notifier.loginMock(
-                  LoginRequestEntity(
-                    email: 'user',
-                    password: 'password',
-                  ),
-                );
+                if (!state.hasError && (state.hasValue && state.value != null)) {
+                  context.go(Routes.main);
+                } else {
+                  notifier.loginMock(
+                    LoginRequestEntity(
+                      email: 'user',
+                      password: 'password',
+                    ),
+                  );
+                }
               },
               child: state.isLoading
                   ? const SizedBox(
@@ -74,7 +80,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       width: 20,
                       child: CircularProgressIndicator(strokeWidth: 2),
                     )
-                  : state.hasValue && !state.hasError
+                  : !state.hasError && (state.hasValue && state.value != null)
                       ? const Text("Continue")
                       : const Text("Send OTP"),
             )
