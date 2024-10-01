@@ -12,6 +12,71 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart' as _svg;
 import 'package:vector_graphics/vector_graphics.dart' as _vg;
 
+class $AssetsIconsGen {
+  const $AssetsIconsGen();
+
+  /// File path: assets/icons/add_icon.svg
+  SvgGenImage get addIcon => const SvgGenImage('assets/icons/add_icon.svg');
+
+  /// File path: assets/icons/home_icon.svg
+  SvgGenImage get homeIcon => const SvgGenImage('assets/icons/home_icon.svg');
+
+  /// File path: assets/icons/home_icon_selected.svg
+  SvgGenImage get homeIconSelected =>
+      const SvgGenImage('assets/icons/home_icon_selected.svg');
+
+  /// File path: assets/icons/map_icon.svg
+  SvgGenImage get mapIcon => const SvgGenImage('assets/icons/map_icon.svg');
+
+  /// File path: assets/icons/map_icon_selected.svg
+  SvgGenImage get mapIconSelected =>
+      const SvgGenImage('assets/icons/map_icon_selected.svg');
+
+  /// File path: assets/icons/notification_icon.svg
+  SvgGenImage get notificationIcon =>
+      const SvgGenImage('assets/icons/notification_icon.svg');
+
+  /// File path: assets/icons/notification_icon_selected.svg
+  SvgGenImage get notificationIconSelected =>
+      const SvgGenImage('assets/icons/notification_icon_selected.svg');
+
+  /// File path: assets/icons/profile_icon.svg
+  SvgGenImage get profileIcon =>
+      const SvgGenImage('assets/icons/profile_icon.svg');
+
+  /// File path: assets/icons/profile_icon_selected.svg
+  SvgGenImage get profileIconSelected =>
+      const SvgGenImage('assets/icons/profile_icon_selected.svg');
+
+  SvgGenImage get imageIcon => const SvgGenImage('assets/icons/image_icon.svg');
+
+  SvgGenImage get downRightFlowIcon =>
+      const SvgGenImage('assets/icons/down_right_flow_icon.svg');
+
+  SvgGenImage get bubbleChatIcon =>
+      const SvgGenImage('assets/icons/bubble_chat_icon.svg');
+
+  SvgGenImage get infoCircleIcon =>
+      const SvgGenImage('assets/icons/info_circle_icon.svg');
+
+  /// List of all assets
+  List<SvgGenImage> get values => [
+        addIcon,
+        homeIcon,
+        homeIconSelected,
+        mapIcon,
+        mapIconSelected,
+        notificationIcon,
+        notificationIconSelected,
+        profileIcon,
+        profileIconSelected,
+        imageIcon,
+        downRightFlowIcon,
+        bubbleChatIcon,
+        infoCircleIcon
+      ];
+}
+
 class $AssetsLogoGen {
   const $AssetsLogoGen();
 
@@ -25,6 +90,7 @@ class $AssetsLogoGen {
 class Assets {
   Assets._();
 
+  static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsLogoGen logo = $AssetsLogoGen();
 }
 

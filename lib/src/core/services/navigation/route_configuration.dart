@@ -7,10 +7,12 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../feature/authentication/presentation/login/views/login_screen.dart';
 import '../../../feature/authentication/presentation/register/views/register_screen.dart';
+import '../../../feature/dashboard/presentation/main/views/main_screen.dart';
 import '../../../feature/onboarding/presentation/splash/views/splash_screen.dart';
 import 'routes.dart';
 
 part './parts/authentication_routes.dart';
+
 part 'route_configuration.g.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'Root');
@@ -26,7 +28,10 @@ GoRouter router(RouterRef ref) {
     refreshListenable: listenable,
     redirect: (context, state) async {
       /// If the user has completed the splash screen, redirect to the login screen
-      if (listenable.state.hasCompletedSplash) return Routes.login;
+      if (listenable.state.hasCompletedSplash) {
+        listenable.updateSplashStatus(false);
+        return Routes.login;
+      }
 
       return null;
     },
@@ -43,6 +48,13 @@ GoRouter router(RouterRef ref) {
         },
       ),
       ..._authenticationRoutes,
+      GoRoute(
+        path: Routes.main,
+        name: Routes.main,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: MainScreen());
+        },
+      ),
     ],
   );
 }
