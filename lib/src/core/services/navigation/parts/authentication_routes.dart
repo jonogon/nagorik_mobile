@@ -7,14 +7,5 @@ List<GoRoute> _authenticationRoutes = [
     pageBuilder: (context, state) => const MaterialPage(
       child: LoginScreen(),
     ),
-    routes: [
-      GoRoute(
-        path: Routes.register,
-        name: Routes.register,
-        pageBuilder: (context, state) => const MaterialPage(
-          child: RegisterScreen(),
-        ),
-      ),
-    ],
   ),
 ];

@@ -6,7 +6,6 @@ import 'package:nagorik_mobile/src/core/services/navigation/router_state/router_
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../feature/authentication/presentation/login/views/login_screen.dart';
-import '../../../feature/authentication/presentation/register/views/register_screen.dart';
 import '../../../feature/onboarding/presentation/splash/views/splash_screen.dart';
 import 'routes.dart';
 

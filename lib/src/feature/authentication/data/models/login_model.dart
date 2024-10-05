@@ -1,15 +1,10 @@
 import '../../domain/entities/login_entity.dart';
 
-class LoginRequestModel extends LoginRequestEntity {
-  LoginRequestModel({
-    required super.email,
-    required super.password,
-  });
-
+extension LoginRequestModel on LoginRequestEntity {
   Map<String, dynamic> toJson() {
     return {
-      "email": email,
-      "password": password,
+      "email": phone,
+      "password": otp,
     };
   }
 }

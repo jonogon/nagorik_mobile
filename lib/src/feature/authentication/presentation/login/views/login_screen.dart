@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:nagorik_mobile/src/core/logging/logger/log.dart';
 
 import '../../../../../core/gen/assets.gen.dart';
-import '../../../domain/entities/login_entity.dart';
 import '../riverpod/login_provider.dart';
 
 part '../widgets/login_form.dart';
@@ -16,6 +16,8 @@ class LoginScreen extends ConsumerStatefulWidget {
 
 class _LoginScreenState extends ConsumerState<LoginScreen> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  final TextEditingController phoneController = TextEditingController();
+  final TextEditingController otpController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -24,11 +26,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
 
     ref.listen(loginProvider, (previous, next) {
       if (!next.isLoading && next.hasError) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(next.error.toString()),
-          ),
-        );
+        // Handle error here, however you want
       } else if (next.hasValue) {
         // Handle success here, however you want
       }
@@ -49,24 +47,25 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                     "Enter phone number to continue",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 18,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
                   const SizedBox(height: 64),
-                  _LoginForm(formKey: formKey),
+                  _LoginForm(
+                    formKey: formKey,
+                    phoneController: phoneController,
+                    otpController: otpController,
+                  ),
                   const SizedBox(height: 24),
                 ],
               ),
             ),
             FilledButton(
               onPressed: () {
-                notifier.loginMock(
-                  LoginRequestEntity(
-                    email: 'user',
-                    password: 'password',
-                  ),
-                );
+                if (formKey.currentState!.validate()) {
+                  notifier.login();
+                }
               },
               child: state.isLoading
                   ? const SizedBox(

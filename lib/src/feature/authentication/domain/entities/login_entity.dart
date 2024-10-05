@@ -1,16 +1,14 @@
-interface class LoginEntity {}
-
-class LoginRequestEntity extends LoginEntity {
-  final String email;
-  final String password;
+class LoginRequestEntity {
+  final String phone;
+  final String otp;
 
   LoginRequestEntity({
-    required this.email,
-    required this.password,
+    required this.phone,
+    required this.otp,
   });
 }
 
-class LoginResponseEntity extends LoginEntity {
+class LoginResponseEntity {
   final String accessToken;
 
   LoginResponseEntity({required this.accessToken});

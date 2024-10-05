@@ -31,7 +31,7 @@ class MyApp extends ConsumerWidget {
               style: ButtonStyle(
                 textStyle: WidgetStatePropertyAll(
                   TextStyle(
-                    fontSize: 14,
+                    fontSize: 16,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
@@ -43,7 +43,7 @@ class MyApp extends ConsumerWidget {
             inputDecorationTheme: InputDecorationTheme(
               filled: true,
               hintStyle: TextStyle(
-                fontSize: 14,
+                fontSize: 16,
                 color: Colors.grey.shade500,
               ),
               contentPadding: const EdgeInsets.symmetric(

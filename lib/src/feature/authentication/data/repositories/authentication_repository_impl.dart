@@ -1,9 +1,7 @@
 import '../../domain/entities/login_entity.dart';
-import '../../domain/entities/sign_up_entity.dart';
 import '../../domain/repositories/authentication_repository.dart';
 import '../data_sources/authentication_data_source.dart';
 import '../models/login_model.dart';
-import '../models/sign_up_model.dart';
 
 final class AuthenticationRepositoryImpl extends AuthenticationRepository {
   final AuthenticationDataSource remote;
@@ -11,17 +9,9 @@ final class AuthenticationRepositoryImpl extends AuthenticationRepository {
   AuthenticationRepositoryImpl({required this.remote});
 
   @override
-  Future<SignUpResponseEntity> register(SignUpRequestModel data) async {
+  Future<LoginResponseEntity> login(LoginRequestEntity entity) async {
     return await request(() async {
-      final response = await remote.register(data.toJson());
-      return SignUpResponseModel.fromJson(response.data);
-    });
-  }
-
-  @override
-  Future<LoginResponseEntity> login(LoginRequestModel data) async {
-    return await request(() async {
-      final response = await remote.login(data.toJson());
+      final response = await remote.login(entity.toJson());
       return LoginResponseModel.fromJson(response.data);
     });
   }
